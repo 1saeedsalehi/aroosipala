@@ -1,113 +1,156 @@
-import Image from 'next/image'
+'use client'
+
+import '../../styles/custom.css';
+import React, { useEffect, useState } from 'react';
+
+
 
 export default function Home() {
+
+  // const font = Great_Vibes({
+  //   weight: "400",
+  //   style: "normal",
+  //   display: "swap",
+  //   subsets: ["latin"],
+
+
+
+  // });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  // useEffect(() => {
+  //   const body = document.querySelector("body") as HTMLElement;
+
+  //   function createHeart() {
+  //     const heart = document.createElement("div");
+  //     heart.className = "fas fa-heart";
+  //     heart.style.left = (Math.random() * 100) + "vw";
+  //     heart.style.animationDuration = (Math.random() * 3) + 2 + "s"
+  //     heart.textContent = "❤️"
+  //     body.appendChild(heart);
+  //   }
+  //   setInterval(createHeart, 10);
+  //   setInterval(function name() {
+  //     var heartArr = document.querySelectorAll(".fa-heart")
+  //     if (heartArr.length > 100) {
+  //       heartArr[0].remove()
+  //     }
+  //   }, 10)
+
+
+  // }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+
+    <div className="text-black bg-gray-100 min-h-screen p-0">
+
+      <nav className="bg-white p-4 shadow-md vazir">
+        <div className="container mx-auto">
+          <div className="flex justify-between">
+            <div className="great_vibes text-2xl font-bold" >
+              Saeed & Honeye 🕊️
+            </div>
+            <div className="hidden md:flex space-x-4 text-rtl">
+              <a href="#home" className="text-gray-700 hover:text-black">🏚️خانه</a>
+              <a href="#description" className="text-gray-700 hover:text-black">💍 چه خبره؟</a>
+              <a href="#time" className="text-gray-700 hover:text-black">⏰ زمانش کیه؟</a>
+              <a href="#location" className="text-gray-700 hover:text-black">📍کجاس؟</a>
+            </div>
+            <button onClick={toggleMobileMenu} className="md:hidden flex items-center px-3 py-2 border rounded">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+          <div className={`mt-4 md:hidden ${mobileMenuOpen ? '' : 'hidden'} space-y-2 text-rtl`}>
+            <a href="#home" className="block text-gray-700 hover:text-black">🏚️خانه</a>
+            <a href="#description" className="block text-gray-700 hover:text-black">💍 چه خبره؟</a>
+            <a href="#time" className="block text-gray-700 hover:text-black">⏰ زمانش کیه؟</a>
+            <a href="#location" className="block text-gray-700 hover:text-black">📍 کجاس؟</a>
+          </div>
+        </div>
+      </nav>
+
+      <div id="home" className="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
+        style={{ backgroundImage: 'url("/bg.jpg")' }}>
+
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+
+        <div className="relative z-10 text-white text-4xl font-bold text-center great_vibes">
+          We are <br />
+          celebrating <br />
+          our marriage!
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* Description */}
+      <div id="description" className="text-rtl text-2xl bg-white p-8 rounded-lg shadow-md mb-6 text-right item-container">
+        <h2 className="text-3xl font-semibold mb-4 text-center">چه خبره؟</h2>
+        <p>
+          به این وسیله، با خوشحالی و شادی، شما رو به جشن ازدواج‌مون دعوت می‌کنیم.
+          <br />
+          این مهمونی تو یک کافه دلنشین تو شهر رشت برگزار میشه و قراره در کنار شما لحظه‌های شیرینی بسازیم به صرف میوه، شام، کیک و چای دلچسب شمال.
+          <br />
+          شما عزیزان ما هستید و حضورتون این روز رو برای ما ارزشمندتر می‌کنه.
+          <br />
+          با همه‌ی شوقی که توی دل‌مون داریم، منتظرتون هستیم تا ما رو در این لحظات خوشبخت همراهی کنید.
+          <br />
+          <br />
+          با آرزوی دیدار روی ماهتون،
+          <br />
+          هانیه و سعید❤️
+        </p>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {/* Time */}
+      <div id="time" className="text-rtl text-2xl bg-white p-8 rounded-lg shadow-md mb-6 text-right item-container">
+        <h2 className="text-3xl font-semibold mb-4 text-center" >زمانش کیه؟</h2>
+        <p>🗓️پنچ شنبه ۱۶ آذر</p>
+        <p>⏰از ساعت ۱۹:۰۰ تا وقتی که دیگه بخوایم بریم خونه</p>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <p>⚠️ از اون هفت الکی ها نیست </p>
       </div>
-    </main>
-  )
+
+      {/* Google Map */}
+      <div id="location" className="text-rtl text-2xl bg-white p-8 rounded-lg shadow-md text-right item-container">
+        <h2 className="text-3xl font-bold mb-4 text-center">جاش کجاس؟</h2>
+        <p>📍 رشت، گلسار،‌ بلوار گلایل، نبش لادن،‌ کافه رستوران دوک</p>
+        <p>
+          ☎️
+          تلفن کافه رستوران:
+          <a href='tel:+981333725071'>01333725071</a>
+        </p>
+        <div>
+          <a className='block text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded vazir mb-2' target='blank' href='https://goo.gl/maps/PjnKdrBJ5pw3F7g88'>
+            <span>
+              مسیر یابی با گوگل
+            </span>
+          </a>
+          <a className='block text-sm bg-rose-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded vazir mb-2' target='blank' href="https://ul.waze.com/ul?ll=37.30675267%2C49.58531141&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location">
+            مسیر یابی با Waze
+          </a>
+        </div>
+        <div className="aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d793.3735129231229!2d49.584949!3d37.3071233!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x401fd9349694ac81%3A0x3f57c65d20ba4c02!2sDuke%20Restaurant!5e0!3m2!1snl!2snl!4v1697994907476!5m2!1sfa!2sir"
+            width="600"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      {/* Time */}
+      <div id="footer" className="vazir text-rtl bg-white p-8 rounded-lg text-right item-container">
+        درست شده با ❤️ توسط سعید و هانیه. 2023 ©
+      </div>
+    </div >
+  );
 }

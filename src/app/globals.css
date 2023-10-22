@@ -18,10 +18,35 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: badkhat !important;
+}
+
+@keyframes heartMove {
+  0% {
+    transform: translateY(-10vh);
+  }
+
+  100% {
+    transform: translateY(110vh);
+  }
+}
+
+.item-container {
+
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0);
+  /* box-shadow: 5px 5px 5px 2px black; */
+
+}
+
+.fa-heart {
+  color: rgb(60, 0, 60);
+  font-size: 25px;
+  position: absolute;
+  animation: heartMove linear 1;
+  top: -10vh;
+  z-index: 0;
 }
