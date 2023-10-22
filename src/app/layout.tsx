@@ -16,8 +16,8 @@ export default function RootLayout({
 
       <head>
         <meta property="og:title" content="عروسی پلای سعید و هانیه" />
-        <meta property="og:description" content="Your description goes here." />
-        <meta property="og:image" content="https://saeedohoneye.ir/bg.jpg" />
+        <meta property="og:description" content="هر چیزی که در مورد مراسم شام عروسی سعید و هانیه میخواین بدونین اینجاس" />
+        <meta property="og:image" content="bg.jpg" />
         <meta property="og:url" content="https://saeedohoneye.ir" />
 
         <meta property="og:type" content="website" />
